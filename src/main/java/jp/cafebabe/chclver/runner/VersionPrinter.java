@@ -8,9 +8,12 @@ import io.vavr.control.Either;
 import io.vavr.control.Try;
 import jp.cafebabe.chclver.Runner;
 import jp.cafebabe.chclver.cli.Arguments;
-import jp.cafebabe.chclver.entities.*;
+import jp.cafebabe.chclver.entities.ClassFileVersion;
+import jp.cafebabe.chclver.entities.MagicAndVersionParser;
+import jp.cafebabe.chclver.entities.Version;
 import jp.cafebabe.kunai.entries.ClassName;
 import jp.cafebabe.kunai.entries.Entry;
+import jp.cafebabe.kunai.entries.KunaiException;
 import jp.cafebabe.kunai.source.DataSource;
 import jp.cafebabe.kunai.source.factories.DataSourceFactory;
 
@@ -34,7 +37,8 @@ public class VersionPrinter implements Runner {
     private void readAndPrint(DataSourceFactory factory, MagicAndVersionParser jbc, Path path) {
         Try.withResources(() -> factory.build(path))
                 .of(source -> performEach(source, jbc))
-                .onSuccess(list -> printResult(path, list));
+                .onSuccess(list -> printResult(path, list))
+                .onFailure(KunaiException.class, t -> args.out.printf("%s: file or directory not found%n", t.getMessage()));
     }
 
     private void printResult(Path path, List<Either<Throwable, ClassFileVersion>> results) {
