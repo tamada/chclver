@@ -1,0 +1,6 @@
+#! /bin/sh
+
+VERSION=1.0.0-SNAPSHOT
+CHCLVER_HOME=$(brew --prefix chclver)
+
+java -jar $CHCLVER_HOME/lib/chclver-${VERSION}.jar "$@"

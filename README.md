@@ -4,7 +4,7 @@
 
 [![codebeat badge](https://codebeat.co/badges/50cf2989-ec6b-467c-9f63-1856478f94d4)](https://codebeat.co/projects/github-com-tamada-chclver-main)
 
-[![License Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-green?logo=apache)](https://github.com/tamada/chclver/blob/main/LICENSE) [![Version 1.0.0-SNAPSHOT](https://img.shields.io/badge/Version-1.0.0--SNAPSHOT-green)](https://github.com/tamada/chclver/releases/tag/v1.0.0)
+[![License Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-green?logo=apache)](https://github.com/tamada/chclver/blob/main/LICENSE) [![Version 1.0.0-SNAPSHOT](https://img.shields.io/badge/Version-1.0.0--SNAPSHOT-green)](https://github.com/tamada/chclver/releases/tag/v1.0.0) [![GitHub Discussion](https://img.shields.io/badge/GitHub-Discussions-green?logo=github)](https://github.com/tamada/chclver/discussions)
 
 Change class file versions.
 
@@ -61,6 +61,12 @@ mvn package
 ```
 
 ## :smile: About
+
+### :speech_balloon: Discussions
+
+[![GitHub Discussion](https://img.shields.io/badge/GitHub-Discussions-green?logo=github)](https://github.com/tamada/chclver/discussions)
+
+Please post the message.
 
 ### :man_cook: How to Contribute :woman_cook:
 

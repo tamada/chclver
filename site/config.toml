@@ -1,0 +1,29 @@
+baseURL = 'https://tamada.github.io/chclver'
+languageCode = 'en-us'
+title = 'chclver'
+enableEmoji = true
+paginate = 10
+hasCJKLanguage = false
+theme = "cayman-hugo-theme"
+
+[params]
+    project_name = "chclver"
+    project_tagline = "Change class files' versions"
+    project_logo = "images/logo.svg"
+    dateFormat = "Jan 02, 2006"
+    footer = "[![GitHub](https://img.shields.io/badge/GitHub-tamada/chclver-blueviolet.svg?logo=github)](https://github.com/tamada/chclver) Made with [Hugo](https://gohugo.io/). Theme by [Cayman](https://github.com/zwbetz-gh/cayman-hugo-theme). Deployed to [GitHub Pages](https://pages.github.com/)."
+    katex = true
+
+[menu]
+    [[menu.nav]]
+        name = ":house: Home"
+        url = "/"
+        weight = 1
+    [[menu.nav]]
+        name = ":anchor: Usage &amp; Install"
+        url = "/usage/"
+        weight = 2
+    [[menu.nav]]
+        name = ":smile: About"
+        url = "/about/"
+        weight = 3
