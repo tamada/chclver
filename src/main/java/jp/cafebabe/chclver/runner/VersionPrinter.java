@@ -77,6 +77,7 @@ public class VersionPrinter implements Runner {
 
     private List<Either<Throwable, ClassFileVersion>> performEach(DataSource source, MagicAndVersionParser jbc) {
         return source.stream()
+                .sorted((e1, e2) -> e1.className().compareTo(e2.className()))
                 .filter(entry -> entry.isClass())
                 .map(entry -> performEntry(entry, jbc))
                 .collect(Collectors.toList());

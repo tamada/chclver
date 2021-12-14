@@ -1,8 +1,6 @@
 # chclver
 
-[![Build](https://github.com/tamada/chclver/actions/workflows/maven.yml/badge.svg)](https://github.com/tamada/chclver/actions/workflows/maven.yml)
-
-[![Coverage Status](https://coveralls.io/repos/github/tamada/chclver/badge.svg?branch=main)](https://coveralls.io/github/tamada/chclver?branch=main)
+[![Build](https://github.com/tamada/chclver/actions/workflows/maven.yml/badge.svg)](https://github.com/tamada/chclver/actions/workflows/maven.yml) [![Coverage Status](https://coveralls.io/repos/github/tamada/chclver/badge.svg?branch=main)](https://coveralls.io/github/tamada/chclver?branch=main)
 
 [![codebeat badge](https://codebeat.co/badges/50cf2989-ec6b-467c-9f63-1856478f94d4)](https://codebeat.co/projects/github-com-tamada-chclver-main)
 
