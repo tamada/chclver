@@ -1,0 +1,24 @@
+### https://raw.github.com/github/gitignore/ce6f84024931408ce801808fe9f4587f7588b283/community/Golang/Hugo.gitignore
+
+# Generated files by hugo
+/public/
+/resources/_gen/
+
+# Executable may be added to repository
+hugo.exe
+hugo.darwin
+hugo.linux
+
+
+### https://raw.github.com/github/gitignore/ce6f84024931408ce801808fe9f4587f7588b283/community/Golang/Hugo.gitignore
+
+# Generated files by hugo
+/public/
+/resources/_gen/
+
+# Executable may be added to repository
+hugo.exe
+hugo.darwin
+hugo.linux
+
+

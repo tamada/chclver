@@ -1,0 +1,50 @@
+name: Build native-images
+
+on:
+  pull_request:
+    branches:
+      - main
+    types: [closed]
+
+job:
+  build-native:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        gu-binary: [gu, gu.cmd]
+        exclude:
+          - os: ubuntu-latest
+            gu-binary: gu.cmd
+          - os: macos-latest
+            gu-binary: gu.cmd
+          - os: windows-latest
+            gu-binary: gu
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: main
+          fetch-depth: 0
+        
+      - name: Initialize GraalVM
+        id: setup-graalvm
+        uses: DeLaGuardo/setup-graalvm@master
+        with:
+          # GraalVM version, no pattern syntax available atm
+          graalvm: '21.3.0'
+          # Java version, optional, defaults to 'java8'. Available options are 'java8' and 'java11'.
+          java: 'java17'
+          # Architecture flag, optional, defaults to 'amd64'. Available options are 'amd64' and 'aarch64'. Later is available only for linux runners.
+          arch: 'amd64'
+
+      - name: Install native-image component
+        run: |
+          ${{ matrix.gu-binary }} install native-image
+
+      - name: Build
+        run: mvn package
+
+      - name: Build native-image
+        run: native-image -jar target/chclver-1.0.0-SNAPSHOT.jar --no-fallback --allow-incomplete-classpath chclver
+  

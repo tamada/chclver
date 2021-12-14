@@ -2,7 +2,7 @@ package jp.cafebabe.chclver.cli;
 
 import java.util.Optional;
 
-import jp.cafebabe.chclver.entities.JvmSpecVersions;
+import jp.cafebabe.chclver.entities.JvmSpecVersion;
 import jp.cafebabe.chclver.entities.Version;
 import jp.cafebabe.chclver.entities.VersionBuilder;
 import picocli.CommandLine.Option;
@@ -13,7 +13,7 @@ class UpdateOptions {
 
     @Option(names = {
             "--to" }, paramLabel = "VERSION", description = "specify the class file version. If this option was not specified, print the class file version of given class files.")
-    private Optional<String> toVersion;
+    private Optional<JvmSpecVersion> toVersion;
 
     @Option(names = { "--force-to" }, paramLabel = "MAJOR.MINOR", description = "specify the class file version.", hidden = true)
     private Optional<String> forceVersion;
@@ -22,12 +22,12 @@ class UpdateOptions {
         return destination;
     }
 
-    public Optional<String> toVersion() {
+    public Optional<JvmSpecVersion> toVersion() {
         return toVersion;
     }
 
     public Optional<Version> version() {
-        return toVersion.map(str -> JvmSpecVersions.find(str))
+        return toVersion.map(jvmsv -> Optional.of(jvmsv.version()))
                 .orElseGet(() -> forceVersion.map(str -> VersionBuilder.build(str)));
     }
 }

@@ -7,8 +7,8 @@ import jp.cafebabe.chclver.entities.JvmSpecVersions;
 public class GivenVersionValidator implements Validator {
     @Override
     public Arguments validate(Arguments args) throws IllegalArgumentException {
-        if (args.toVersion().map(this::isInvalidVersion).orElse(false))
-            throw new IllegalArgumentException(String.format("%s: unknown version", args.toVersion().get()));
+        // if (args.toVersion().map(this::isInvalidVersion).orElse(false))
+        // throw new IllegalArgumentException(String.format("%s: unknown version", args.toVersion().get()));
         return args;
     }
 
