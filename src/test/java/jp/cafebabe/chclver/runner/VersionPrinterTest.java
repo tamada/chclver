@@ -2,6 +2,7 @@ package jp.cafebabe.chclver.runner;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,7 +19,7 @@ public class VersionPrinterTest {
     public void testJava7() {
         List<String> results = execute(new String[]{ "src/sample/classes/java7" });
         Assertions.assertEquals(2, results.size());
-        Assertions.assertEquals("src/sample/classes/java7", results.get(0));
+        Assertions.assertEquals(Path.of("src/sample/classes/java7"), Path.of(results.get(0)));
         Assertions.assertEquals("\t51.0 (Java 7)", results.get(1));
     }
 
@@ -26,7 +27,7 @@ public class VersionPrinterTest {
     public void testJava8() {
         List<String> results = execute(new String[]{ "src/sample/classes/java8", "--verbose" });
         Assertions.assertEquals(4, results.size());
-        Assertions.assertEquals("src/sample/classes/java8", results.get(0));
+        Assertions.assertEquals(Path.of("src/sample/classes/java8"), Path.of(results.get(0)));
         Assertions.assertEquals("\t52.0 (Java 8)", results.get(1));
         Assertions.assertEquals("\t\tFibonacci", results.get(2));
         Assertions.assertEquals("\t\tHelloWorld", results.get(3));
