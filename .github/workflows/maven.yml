@@ -2,13 +2,18 @@ name: Build
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches:
+      - "**"
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os}}
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+          - macOS-latest
+          - windows-latest
 
     steps:
       - name: 'Check out repository'
@@ -31,3 +36,7 @@ jobs:
 
       - name: 'Build'
         run: mvn -B clean verify
+
+      - name: send coverage to coveralls
+        if: matrix.os == 'ubuntu-latest'
+        run: mvn -DrepoToken=${{ secrets.COVERALLS_REPO_TOKEN }} verify coveralls:report

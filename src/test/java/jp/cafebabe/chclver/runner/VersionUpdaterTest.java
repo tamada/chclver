@@ -19,7 +19,7 @@ import jp.cafebabe.chclver.cli.ArgumentsBuilder;
 public class VersionUpdaterTest {
     @Test
     public void testBasic() {
-        List<String> results = execute(new String[]{ "src/sample/classes/java7", "--to", "11", "-d", "test1" });
+        List<String> results = execute(new String[]{ "src/sample/classes/java7", "--to", "Java11", "-d", "test1" });
         Assertions.assertEquals("src/sample/classes/java7 -> test1", results.get(0));
         Assertions.assertEquals("\t51.0 (Java 7) -> 55.0 (Java 11)", results.get(1));
 

@@ -72,6 +72,12 @@
       <scope>compile</scope>
     </dependency>
     <dependency>
+      <groupId>org.ow2.asm</groupId>
+      <artifactId>asm</artifactId>
+      <version>9.2</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
       <groupId>io.vavr</groupId>
       <artifactId>vavr</artifactId>
       <version>0.10.3</version>
@@ -246,6 +252,33 @@
             </goals>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>3.0.0</version>
+        <executions>
+          <execution>
+            <id>generate-autocompletion-script</id>
+            <phase>package</phase>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <executable>java</executable>
+          <arguments>
+            <argument>-Dpicocli.autocomplete.systemExitOnError</argument>
+            <argument>-cp</argument>
+            <classpath/>
+            <argument>picocli.AutoComplete</argument>
+            <argument>--force</argument><!-- overwrite if exists -->
+            <argument>--completionScript</argument>
+            <argument>${project.build.directory}/completion.sh</argument>
+            <argument>jp.cafebabe.chclver.cli.Arguments</argument><!-- replace with your class -->
+          </arguments>
+        </configuration>
       </plugin>
     </plugins>
   </build>

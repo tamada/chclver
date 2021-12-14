@@ -6,7 +6,7 @@ import jp.cafebabe.chclver.cli.Arguments;
 import jp.cafebabe.chclver.cli.Validator;
 
 public class Validators implements Validator {
-    private List<Validator> validators = List.of(new GivenVersionValidator(), new ListVersionsValidator());
+    private List<Validator> validators = List.of(new ListVersionsValidator());
 
     @Override
     public Arguments validate(Arguments args) throws IllegalArgumentException {

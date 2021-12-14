@@ -28,7 +28,7 @@ public class RunnerTest {
 
     @Test
     public void testVersionUpdater() {
-        Assertions.assertInstanceOf(VersionUpdater.class, buildRunner("some_filer", "--to", "15"));
+        Assertions.assertInstanceOf(VersionUpdater.class, buildRunner("some_filer", "--to", "Java15"));
     }
 
     private Runner buildRunner(String... args) {

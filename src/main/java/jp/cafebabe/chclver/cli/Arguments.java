@@ -5,6 +5,7 @@ import java.nio.file.Path;
 import java.util.Optional;
 import java.util.stream.Stream;
 
+import jp.cafebabe.chclver.entities.JvmSpecVersion;
 import jp.cafebabe.chclver.entities.Version;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Mixin;
@@ -45,7 +46,7 @@ public class Arguments {
         return versionsOptions.listVersions();
     }
 
-    public Optional<String> toVersion() {
+    public Optional<JvmSpecVersion> toVersion() {
         return updateOptions.toVersion();
     }
 

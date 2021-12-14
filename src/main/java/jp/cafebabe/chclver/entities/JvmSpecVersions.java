@@ -1,34 +1,13 @@
 package jp.cafebabe.chclver.entities;
 
-import java.util.*;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 import jp.cafebabe.chclver.VersionVisitor;
 
-import static jp.cafebabe.chclver.entities.JvmSpecVersion.of;
-
 public class JvmSpecVersions {
-    private static final List<JvmSpecVersion> versions;
-    static {
-        versions = List.of(of("1.0", 45, 0),
-                of("1.1", 45, 3),
-                of("1.2", 46, 0),
-                of("1.3", 47, 0),
-                of("1.4", 48, 0),
-                of("5", 49, 0),
-                of("6", 50, 0),
-                of("7", 51, 0),
-                of("8", 52, 0),
-                of("9", 53, 0),
-                of("10", 54, 0),
-                of("11", 55, 0),
-                of("12", 56, 0),
-                of("13", 57, 0),
-                of("14", 58, 0),
-                of("15", 59, 0),
-                of("16", 60, 0),
-                of("17", 61, 0),
-                of("18", 62, 0));
-    }
+    private static final List<JvmSpecVersion> versions = List.of(JvmSpecVersion.values());
 
     public static String findJdkVersion(Version classFileVersion) {
         return versions.stream()

@@ -21,13 +21,13 @@ The main features are as follows.
 ## :runner: Usage
 
 ```sh
-chclver [OPTIONS] [JAR|CLASS_FILE|DIRECTORY...]
+chclver [OPTIONS] <JAR|CLASS_FILE|DIRECTORY...>
 OPTIONS
   -d, --destination <DEST>      specify the destination. Default is chclver directory.
       --list-versions           list version of class files and corresponding Java version.
-      --to <JAVA_VERSION>       specify the Java version for updating the versions of
-                                the given class files.  If this option is absent,
-                                print the versions of the given class files.
+      --to <JAVA_VERSION>       specify the Java version for updating to (e.g., Java7, 
+                                Java17).  If this option is absent, print the versions 
+                                of the given class files.
       --force-to <MAJOR.MINOR>  specify the versions of the class files directory.
   -v, --verbose                 verbose mode.
   -h, --help                    print this message.
